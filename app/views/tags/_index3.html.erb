@@ -7,9 +7,10 @@
   <tbody>
     <ul>
     <% @tags.each do |tag| %>
-      <tr>
-        <li><button draggable="true"><%= tag.name %></button></li>
-      </tr>
+      <div class="draggable" draggable="true">
+        <li><%= tag.name %></li>
+        <input type="hidden" name="tag_ids[]" value="<%= tag.id %>">
+      </div>
     </ul>
     <% end %>
   </tbody>

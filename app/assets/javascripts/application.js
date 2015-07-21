@@ -18,11 +18,23 @@
 $(document).ready(function() {
 
 $('#form_id').hide(); //Initially form wil be hidden.
-
+  var dragSource;
  $('#button_id').click(function() {
   $('#form_id').show();//Form shows on button click
 
   });
+
+  $('#drop-target-one').on('dragover', function(evt) {
+    evt.preventDefault()
+  })
+
+  $('#drop-target-one').on('drop', function(evt) {
+    $('#drop-target-one').append(dragSource)
+  })
+
+  $('.draggable').on('dragstart', function(evt) {
+    dragSource = evt.target
+  })
 });
 
 
