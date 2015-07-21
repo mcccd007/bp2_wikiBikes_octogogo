@@ -1,0 +1,72 @@
+<div>
+<h1 style="text-align:left;float:left;">Bicycles Index</h1>
+<br>
+<!-- YES I KNOW THIS IS NOOB -->
+<div style="float:right;">  OMFG....
+<button><%= link_to 'New Bicycle', new_bicycle_path %></button>
+</div>
+</div>
+<hr style="clear:both;"/>
+
+<div class="CSSTableGenerator" >
+  <table>
+    <tbody>
+      <td>Make</td>
+      <td>Model</td>
+      <td>Show</td>
+      <td>Delete</td>
+
+      <% @bicycles.each do |bicycle| %>
+      <tr>
+        <td><%= bicycle.make %></td>
+        <td><%= bicycle.model %></td>
+
+        <!-- made a button to instead of a button tag around a link to probably better off, and the route works! -->
+        <td><%= button_to 'Show', bicycle %></td>
+
+        <!-- <td><button><%= link_to 'Show', bicycle %></button></td> -->
+        <td><button><%= link_to 'Destroy', bicycle, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+<br>
+<!-- render the tags index page somehow... -->
+<%= render :partial => '/tags/index2' %>
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="main">
+  <div id="child" style="float:left;height:40px;"> Hi</div>
+</div>

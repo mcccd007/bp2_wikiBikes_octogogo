@@ -1,0 +1,19 @@
+<hr>
+<div id ="ptwo">
+<h3 style="text-align:left">Tags to be dragged and dropped on the bike show page</h3>
+
+<div align="center">
+<table>
+  <tbody>
+    <ul>
+    <% @tags.each do |tag| %>
+      <tr>
+        <li><button draggable="true"><%= tag.name %></button></li>
+      </tr>
+    </ul>
+    <% end %>
+  </tbody>
+</table>
+<br>
+</div>
+</div>

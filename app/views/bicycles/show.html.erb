@@ -1,0 +1,87 @@
+
+<p>
+  <strong>Make:</strong>
+  <%= @bicycle.make %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @bicycle.model %>
+</p>
+
+<br>
+
+<button><%= link_to 'Edit', edit_bicycle_path(@bicycle) %></button>
+<div align="right", float="right">  <!-- i dont think that works... -->
+  <button><%= link_to 'Back', bicycles_path %></button>
+
+  <!-- THIS BUTTON TO CHANGE THE BOXES FROM HIDDEN TO WHATEVER -->
+  <button><%= "Add tags to this bicycle!" %></button>
+
+
+  <br>
+  <br>
+  <button id="show"><%= "button to show the stuff!" %></button>
+  <button id="hide">Hide</button>
+  <!-- <button id="show">Show</button> -->
+  <button onclick="getElementById('cheese').style.display = 'block'"> Show Above Div </button>
+<!-- <button onclick="show-div()"> Show Above Div </button> -->
+
+</div>
+
+<!-- IF BUTTON CLICKED THING TO DISPLAY THIS  -->
+
+<!-- <div style="display: none"> -->
+<div class="cheese" id=>
+  <div id="pthree">
+    <div id="drop-target-one">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div align="center">
+        DROP THEM HERE TO APPLY THOSE TAGS
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+  <br>
+  <br>
+  <%= render :partial => '/tags/index3' %>
+  <br>
+  <div id="hr2"></div>
+  <br>
+<!-- </div> -->
+</div>
+
+
+
+
+
+
+
+
+<!-- /*<style> .hidden-div{ display:none } </style>*/ -->
+
+<!-- <div class="hidden-div"> You can't see me </div> -->
+
+
+
+
+
+
+<br>
+
+
+
+<div class="hidden-div" id="hidden-div"> You can't see me </div>
+
+<button onclick="getElementById('hidden-div').style.display = 'block'"> Show Above Div </button>

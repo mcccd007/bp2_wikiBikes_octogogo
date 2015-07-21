@@ -1,0 +1,47 @@
+<%= form_for(@tag) do |f| %>
+<% if @tag.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
+
+  <ul>
+    <% @tag.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</div>
+
+<div class="field">
+  <%= f.label :spec %><br>
+  <%= f.text_field :spec %>
+</div>
+
+
+<div class="field">
+  WHAT TYPE OF TAG IS THIS
+  <br>
+
+
+
+  <div class="form_row">
+      <label for="tagcategory">Tag Category:</label>
+      <% [ 'anything', 'at all' ].each do |tcat| %>
+        <br><%= radio_button_tag 'tag_category', tcat, @tag_category == tcat %>
+        <%= tcat.humanize %>
+      <% end %>
+  </div>
+
+
+
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+<% end %>

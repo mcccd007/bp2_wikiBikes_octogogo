@@ -1,0 +1,30 @@
+<!--
+<h2>Listing Tags</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tags.each do |tag| %>
+      <tr>
+        <td><%= tag.name %> | </td>
+        <td><%= tag.spec %> | </td>
+        <td><button><%= link_to 'Show', tag %></button></td>
+        <td><%= button_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td><button><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div align="right">
+  <button><%= link_to 'New Tag', new_tag_path %></button>
+</div> -->

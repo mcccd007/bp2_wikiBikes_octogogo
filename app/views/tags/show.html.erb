@@ -1,0 +1,16 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @tag.name %>
+</p>
+
+<p>
+  <strong>Spec:</strong>
+  <%= @tag.spec %>
+</p>
+
+
+
+<button><%= link_to 'Edit', edit_tag_path(@tag) %></button> |
+
+<button><%= link_to 'Back', root_path %></button>

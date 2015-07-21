@@ -1,0 +1,38 @@
+<div>
+<h1 style="text-align:left;float:left;">Tags Index</h1>
+<br>
+WHERE IS THIS GOING TO APPPEAR?
+<div style="float:right;">
+
+  <%= button_to 'New TAG', new_tag_path %>
+</div>
+</div>
+<hr style="clear:both;"/>
+
+<div class="TABLE2" >
+<table>
+  <tbody>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Tag Category Name</td>
+      <td>Show</td>
+      <td>Delete</td>
+
+    <% @tags.each do |tag| %>
+      <tr>
+        <td><%= tag.name %></td>
+        <td><%= tag.spec %></td>
+
+        <td><%= 'foo' %></td>
+
+
+
+
+        <td><%= button_to 'Show', tag %></td>
+        <td><button><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
