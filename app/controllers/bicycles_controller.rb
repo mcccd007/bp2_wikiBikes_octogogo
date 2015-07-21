@@ -1,11 +1,10 @@
 class BicyclesController < ApplicationController
-  before_action :set_bicycle, only: [:show, :edit, :update, :destroy]
+  before_action :set_bicycle, only: [:show, :edit, :update, :destroy, :set_tags]
 
   # GET /bicycles
   # GET /bicycles.json
   def index
     @bicycles = Bicycle.all
-    @tags = Tag.all
     @tag_categories = TagCategory.all
 
   end
@@ -14,8 +13,8 @@ class BicyclesController < ApplicationController
   # GET /bicycles/1.json
   def show
     @bicycle = Bicycle.find(params[:id])
-    @tags = Tag.all
-
+    @tags = Tag.where ""
+    @tags = Tag.all.to_a - @bicycle.tags.to_a
   end
 
   # GET /bicycles/new
@@ -57,6 +56,11 @@ class BicyclesController < ApplicationController
     end
   end
 
+  def set_tags
+    logger.debug "TAG PARAMS: #{tag_params}"
+    @bicycle.set_tags tag_params[:id] if tag_params.present?
+    redirect_to @bicycle
+  end
   # DELETE /bicycles/1
   # DELETE /bicycles/1.json
   def destroy
@@ -76,5 +80,9 @@ class BicyclesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def bicycle_params
       params.require(:bicycle).permit(:make, :model)
+    end
+
+    def tag_params
+      params.require(:tags).permit(id: [])
     end
 end

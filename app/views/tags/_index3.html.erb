@@ -5,13 +5,13 @@
 <div align="center">
 <table>
   <tbody>
-    <ul>
+    <!-- <ul> -->
     <% @tags.each do |tag| %>
       <div class="draggable" draggable="true">
         <li><%= tag.name %></li>
-        <input type="hidden" name="tag_ids[]" value="<%= tag.id %>">
+        <input type="hidden" name="tags[id][]" value="<%= tag.id %>">
       </div>
-    </ul>
+    <!-- </ul> -->
     <% end %>
   </tbody>
 </table>

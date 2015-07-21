@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   root "bicycles#index"
     resources :tags
 
-  resources :bicycles
+  resources :bicycles do
+    member do
+      post 'set_tags', to: 'bicycles#set_tags', as: 'set_tags'
+    end
+  end
 
 end

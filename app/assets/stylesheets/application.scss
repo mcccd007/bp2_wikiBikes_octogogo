@@ -14295,6 +14295,11 @@ input[type="checkbox"] {
     border-style: solid;
     border-color: #990099;
 }
+#pfour {
+    width: 50%;
+    border-style: solid;
+    border-color: #990099;
+}
 
 #nottub9 {
 
@@ -14342,3 +14347,25 @@ input[type="checkbox"] {
 .hidden-div {
    display:none
  }
+
+
+
+
+ .div.wrap {
+     border: 1px solid #000000;
+     overflow: auto;
+ }
+ .div.one {
+     border: 1px solid #AAAAAA;
+     float: left;
+ }
+ .div.two {
+     background-color: #DDDDDD;
+     width: 200px;
+     height: 300px;
+     float: right;
+ }
+
+
+
+ #mainContent, #sideContent {float:left; display:inline; width: 49%;}
