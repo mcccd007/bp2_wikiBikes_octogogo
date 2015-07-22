@@ -14,9 +14,16 @@ class BicyclesController < ApplicationController
   # GET /bicycles/1.json
   def show
     @bicycle = Bicycle.find(params[:id])
-    @tags = Tag.where ""
-    @tags = Tag.all.to_a - @bicycle.tags.to_a
-    # @tags = @bicycle.tags.to_a - Tag.all.to_a 
+
+    current_tags = @bicycle.tags.to_a
+    tags = Tag.all.order(:name) - current_tags
+    @tags = tags.group_by &:tag_category_id
+
+    @current_tags = current_tags.group_by &:tag_category_id
+
+    @categories = TagCategory.all.order :name
+    # @tags = Tag.all.to_a - @bicycle.tags.to_a
+    # @tags = @bicycle.tags.to_a - Tag.all.to_a
 
   end
 

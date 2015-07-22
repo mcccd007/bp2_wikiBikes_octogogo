@@ -24,21 +24,21 @@ $(document).ready(function() {
 
   });
 
-  $('#drop-target-one').on('dragover', function(evt) {
+  $('.drop-target-one').on('dragover', function(evt) {
     evt.preventDefault()
   })
 
-  $('#drop-target-one').on('drop', function(evt) {
-    $('#drop-target-one').append(dragSource)
+  $('.drop-target-one').on('drop', function(evt) {
+    $('.drop-target-one:visible').append(dragSource)
   })
 
 
-  $('#drop-target-two').on('dragover', function(evt) {
+  $('.drop-target-two').on('dragover', function(evt) {
     evt.preventDefault()
   })
 
-  $('#drop-target-two').on('drop', function(evt) {
-    $('#drop-target-two').append(dragSource)
+  $('.drop-target-two').on('drop', function(evt) {
+    $('.drop-target-two:visible').append(dragSource)
   })
 
   $('.draggable').on('dragstart', function(evt) {
@@ -55,4 +55,12 @@ $(document).ready(function(){
   $("#show").click(function(){
     $("cheese").show(666);
   });
+
+  $('.category_choice').click(function(evt) {
+    var target = evt.target
+    var id = $(target).data('id')
+    $('.hide_show').hide()
+    $('#pfour-' + id).show()
+    $('#tags_' + id).show()
+  })
 });

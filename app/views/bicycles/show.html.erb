@@ -4,46 +4,43 @@
   <button onclick="getElementById('cheese').style.display = 'block'"> Click me to add tags to this bicycle. </button>
 </div>
 <br>
+<p>
+  <strong>Make:</strong>
+  <%= @bicycle.make %>
+</p>
+<p>
+  <strong>Model:</strong>
+  <%= @bicycle.model %>
+</p>
 
-<!-- WHERE IS THIS SPACE ON LE MAYO -->
-<div style="float: left">
-
-<div id="pfour">
-  <%= form_tag set_tags_bicycle_path(@bicycle), method: "post" %>
-  <button type="submit">
-    SUBMIT BUTTON
-  </button>
-  <div id="drop-target-one">
-    <p>
-      <strong>Make:</strong>
-      <%= @bicycle.make %>
-    </p>
-
-    <p>
-      <strong>Model:</strong>
-      <%= @bicycle.model %>
-    </p>
-
-    <p>
-      <strong>Tags:</strong>
-      <%= render @bicycle.tags %>
-    </p>
+<div class="row" %>
+  <%= @categories.map do |category|
+    link_to category.name, '#', class: "category_choice", 'data-id': category.id
+  end.join(' | ').html_safe %>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_tag set_tags_bicycle_path(@bicycle), method: "post" %>
+      <button type="submit">
+        SUBMIT BUTTON
+      </button>
+      <% @categories.each do |category| %>
+        <div id="pfour-<%= category.id %>" class="hide_show">
+          <div class="drop-target-one">
+            <p>
+              <strong><%= category.name %> Tags:</strong>
+              <%= render @current_tags[category.id] if @current_tags[category.id] %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </form>
   </div>
-</form>
-</div>
-</div>
-
-<br>
-
-<div class="cheese" id="cheese">
-
-  <div style="float: right">
-    <br>
-    <%= render :partial => '/tags/index3' %>
-    <br>
-  <button>
-    <%= link_to "I don't want to add tags", @bicycle %>
-  </button>
-    <br>
+  <div class="col-md-6">
+    <% @categories.each do |category| %>
+      <div id="tags_<%= category.id %>" class="hide_show drop-target-two" >
+        <%= render @tags[category.id] if @tags[category.id] %>
+      </div>
+    <% end %>
   </div>
 </div>
