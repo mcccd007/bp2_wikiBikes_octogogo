@@ -1,11 +1,12 @@
 <div>
-<h1 style="text-align:left;float:left;">Bicycles Index</h1>
-<br>
-<!-- YES I KNOW THIS IS NOOB -->
-<div style="float:right;">  OMFG....
-<button><%= link_to 'New Bicycle', new_bicycle_path %></button>
+  <h1 style="text-align:left;float:left;">Bicycles Index</h1>
+  <br>
+  <div style="float:right;">  OMFG....
+    <button><%= link_to 'New Bicycle', new_bicycle_path %></button>
+  </div>
 </div>
-</div>
+<hr style="clear:both;"/>
+  Click on the names of bikes or tags to add/edit/funsies
 <hr style="clear:both;"/>
 
 <div class="CSSTableGenerator" >
@@ -13,32 +14,25 @@
     <tbody>
       <td>Make</td>
       <td>Model</td>
-      <td>Show</td>
+      <td>Tags on this bicycle</td>
       <td>Delete</td>
 
       <% @bicycles.each do |bicycle| %>
       <tr>
-        <td><%= bicycle.make %></td>
+        <td><%= link_to "#{bicycle.make}", bicycle %></td>
         <td><%= bicycle.model %></td>
 
-        <!-- made a button to instead of a button tag around a link to probably better off, and the route works! -->
-        <td><%= button_to 'Show', bicycle %></td>
+        <td><%= bicycle.tags.count %></td>
 
-        <!-- <td><button><%= link_to 'Show', bicycle %></button></td> -->
-        <td><button><%= link_to 'Destroy', bicycle, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+        <td><button><%= link_to 'Decimate', bicycle, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
       <% end %>
     </tbody>
   </table>
 </div>
-
 <br>
 <br>
-<!-- render the tags index page somehow... -->
 <%= render :partial => '/tags/index2' %>
-
-
-
 <br>
 <br>
 <br>
@@ -51,22 +45,3 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<!-- <br>
-<div id="main">
-  <div id="child" style="float:left;height:40px;"> Hi</div>
-</div> -->
