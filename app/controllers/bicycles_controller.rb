@@ -6,6 +6,7 @@ class BicyclesController < ApplicationController
   def index
     @bicycles = Bicycle.all
     @tag_categories = TagCategory.all
+    @tags = Tag.all
 
   end
 
@@ -15,6 +16,8 @@ class BicyclesController < ApplicationController
     @bicycle = Bicycle.find(params[:id])
     @tags = Tag.where ""
     @tags = Tag.all.to_a - @bicycle.tags.to_a
+    # @tags = @bicycle.tags.to_a - Tag.all.to_a 
+
   end
 
   # GET /bicycles/new
@@ -58,7 +61,7 @@ class BicyclesController < ApplicationController
 
   def set_tags
     logger.debug "TAG PARAMS: #{tag_params}"
-    @bicycle.set_tags tag_params[:id] if tag_params.present?
+    @bicycle.set_tags tag_params[:tags][:ids] if tag_params.present?
     redirect_to @bicycle
   end
   # DELETE /bicycles/1
@@ -83,6 +86,6 @@ class BicyclesController < ApplicationController
     end
 
     def tag_params
-      params.require(:tags).permit(id: [])
+      params.permit(tags: {ids: []})
     end
 end

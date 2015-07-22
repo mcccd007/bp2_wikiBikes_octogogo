@@ -1,88 +1,49 @@
+<div align="right">
+  <button><%= link_to 'Edit', edit_bicycle_path(@bicycle) %></button> |
+  <button><%= link_to 'Back', bicycles_path %></button> |
+  <button onclick="getElementById('cheese').style.display = 'block'"> Click me to add tags to this bicycle. </button>
+</div>
+<br>
+
+<!-- WHERE IS THIS SPACE ON LE MAYO -->
+<div style="float: left">
+
 <div id="pfour">
-<p>
-  <strong>Make:</strong>
-  <%= @bicycle.make %>
-</p>
+  <%= form_tag set_tags_bicycle_path(@bicycle), method: "post" %>
+  <button type="submit">
+    SUBMIT BUTTON
+  </button>
+  <div id="drop-target-one">
+    <p>
+      <strong>Make:</strong>
+      <%= @bicycle.make %>
+    </p>
 
-<p>
-  <strong>Model:</strong>
-  <%= @bicycle.model %>
-</p>
+    <p>
+      <strong>Model:</strong>
+      <%= @bicycle.model %>
+    </p>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @bicycle.tags.map(&:name).join(', ') %>
-  <!-- this should show the tags that have been dropped on this bicycle -->
-</p>
+    <p>
+      <strong>Tags:</strong>
+      <%= render @bicycle.tags %>
+    </p>
+  </div>
+</form>
+</div>
 </div>
 
 <br>
-<div align="right">
-<button><%= link_to 'Edit', edit_bicycle_path(@bicycle) %></button> |
-  <button><%= link_to 'Back', bicycles_path %></button> |
-
-  <!-- THIS BUTTON TO CHANGE THE BOXES FROM HIDDEN TO WHATEVER -->
-  <!-- <button><%= "Add tags to this bicycle!" %></button> -->
-
-
-  <!-- <button id="show"><%= "button to show the stuff!" %></button> -->
-  <!-- <button id="hide">Hide</button> -->
-  <!-- <button id="show">Show</button> -->
-  <button onclick="getElementById('cheese').style.display = 'block'"> Click me to add tags to this bicycle. </button>
-  <!-- <button onclick="show-div()"> Show Above Div </button> -->
-</div>
-
-<!-- IF BUTTON CLICKED THING TO DISPLAY THIS  -->
-
-<!-- <div style="display: none"> -->
 
 <div class="cheese" id="cheese">
 
-
-  <div style="float:"right"">
-    <!-- WHATEVER MANG -->
-    <button>
-      <%= link_to "I don't want to add tags", @bicycle %>
-    </button>
-  </div>
-
-<div>
-  <%= form_tag set_tags_bicycle_path(@bicycle), method: "post" %>
-    <div align="right">
-      <button type="submit">
-        SUBMIT BUTTON FOR ADDING THE TAGS ONCE THEY ARE DRAGGED INTO THE BOX
-      </button>
-      <div id="pthree">
-        <div id="drop-target-one">
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <div align="center">
-            DROP THEM HERE TO APPLY THOSE TAGS
-          </div>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-        </div>
-      </div>
-    </form>
+  <div style="float: right">
     <br>
-    <br>
-  </div>
-    Content1
-  </div>
-
-<div style="float: right">
     <%= render :partial => '/tags/index3' %>
     <br>
-    <div id="hr2"></div>
+  <button>
+    <%= link_to "I don't want to add tags", @bicycle %>
+  </button>
     <br>
   </div>
 </div>

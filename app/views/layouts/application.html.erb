@@ -5,26 +5,18 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
-<!-- seabiscuit -->
-<!-- its all fun and games until someone gets passed on the inside and then it's a race -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> not needed because of jquery rails gem -->
-
-
 </head>
 <body >
   <header>
-    <h1> wikiBikes </h1>
+    <h1><button id="hdrbttn"><%= link_to 'wikiBikes', bicycles_path %></button></h1>
     <div id="hr2"></div>
-</header>
+  </header>
 
-<!-- <button id="hide">Hide</button>
-<button id="show">Show</button> -->
-<div id="content">
-  <p id="notice"><%= notice %></p>
+  <div id="content">
+    <p id="notice"><%= notice %></p>
 
-<%= yield %>
-</div>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

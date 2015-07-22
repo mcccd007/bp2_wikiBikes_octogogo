@@ -1,20 +1,10 @@
-<hr>
+
 <div id ="ptwo">
 <h3 style="text-align:left">Tags to be dragged and dropped on the bike show page</h3>
 
 <div align="center">
-<table>
-  <tbody>
-    <!-- <ul> -->
-    <% @tags.each do |tag| %>
-      <div class="draggable" draggable="true">
-        <li><%= tag.name %></li>
-        <input type="hidden" name="tags[id][]" value="<%= tag.id %>">
-      </div>
-    <!-- </ul> -->
-    <% end %>
-  </tbody>
-</table>
-<br>
+<div id="drop-target-two">
+    <%= render @tags %>
+</div>
 </div>
 </div>

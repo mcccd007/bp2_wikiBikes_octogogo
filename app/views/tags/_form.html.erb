@@ -15,11 +15,12 @@
   <%= f.label :name %><br>
   <%= f.text_field :name %>
 </div>
-
+<!--
+spec was something i was using in place of not having tag category functioning and now i am going to get rid of it entirely
 <div class="field">
   <%= f.label :spec %><br>
   <%= f.text_field :spec %>
-</div>
+</div> -->
 
 
 <div class="field">
@@ -30,9 +31,9 @@
 
   <div class="form_row">
       <label for="tagcategory">Tag Category:</label>
-      <% [ 'anything', 'at all' ].each do |tcat| %>
-        <br><%= radio_button_tag 'tag_category', tcat, @tag_category == tcat %>
-        <%= tcat.humanize %>
+      <% TagCategory.all.each do |tcat| %>
+        <br><%= radio_button_tag 'tag[tag_category_id]', tcat.id, @tag_category == tcat %>
+        <%= tcat.name.humanize %>
       <% end %>
   </div>
 

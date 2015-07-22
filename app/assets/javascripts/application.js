@@ -17,10 +17,10 @@
 //= require_tree .
 $(document).ready(function() {
 
-$('#form_id').hide(); //Initially form wil be hidden.
+  $('#form_id').hide(); //Initially form wil be hidden.
   var dragSource;
- $('#button_id').click(function() {
-  $('#form_id').show();//Form shows on button click
+  $('#button_id').click(function() {
+    $('#form_id').show();//Form shows on button click
 
   });
 
@@ -32,53 +32,27 @@ $('#form_id').hide(); //Initially form wil be hidden.
     $('#drop-target-one').append(dragSource)
   })
 
+
+  $('#drop-target-two').on('dragover', function(evt) {
+    evt.preventDefault()
+  })
+
+  $('#drop-target-two').on('drop', function(evt) {
+    $('#drop-target-two').append(dragSource)
+  })
+
   $('.draggable').on('dragstart', function(evt) {
     dragSource = evt.target
   })
 });
 
-
-// huck it or fuckit
-$("#btnStats").click(function() {
-    $("#dvStats").css("display","block");
-        /* OR  */
-    $("#dvStats").show();
-});
-
-$("#btnStats").click(function(){
-    $("#dvStats").show()
-});
-
-
 // test3
 // because 50 no's and 1 yes is still a yes
 $(document).ready(function(){
-    $("#hide").click(function(){
-        $("cheese").hide(666);
-    });
-    $("#show").click(function(){
-        $("cheese").show(666);
-    });
+  $("#hide").click(function(){
+    $("cheese").hide(666);
+  });
+  $("#show").click(function(){
+    $("cheese").show(666);
+  });
 });
-// I really don't understand why the jscript only works for the first button and not the latter buttons on the page
-
-
-
-
-
-//rehide the div, not sure why, but it works.
-$('.hidden-div').hide();
-
-
-//change class so it no longer display:none
-//but it will not show the div as .hide() was execute above.
-$('.hidden-div').attr('class','showing-div');
-
-
-//Slide it down and everything works.
-$('.hidden-div').slideDown('fast');
-
-
-
-//this can be done in 1 liner. (thank you, Mohsen for chaining explanation)
-$('.hidden-div').hide().attr('class','showing-div').slideDown('fast');

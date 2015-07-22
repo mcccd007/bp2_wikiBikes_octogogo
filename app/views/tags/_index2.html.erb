@@ -15,20 +15,22 @@ WHERE IS THIS GOING TO APPPEAR?
       <td>Name</td>
       <td>Type</td>
       <td>Tag Category Name</td>
-      <td>Show</td>
+      <!-- <td>Show</td> -->
       <td>Delete</td>
 
     <% @tags.each do |tag| %>
       <tr>
-        <td><%= tag.name %></td>
+        <td><%= link_to "#{tag.name}", tag %></td>
+
+        <!-- <td><%= tag.name %></td> -->
         <td><%= tag.spec %></td>
 
-        <td><%= 'foo' %></td>
+        <td><%= "#{tag.tag_category.try :name}" %></td>
 
 
 
 
-        <td><%= button_to 'Show', tag %></td>
+        <!-- <td><%= button_to 'Show', tag %></td> -->
         <td><button><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
     <% end %>
