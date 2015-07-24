@@ -12,6 +12,7 @@ Tag.create([{ name: '1sp', tag_category_id: 1 }, { name: '2sp', tag_category_id:
   { name: '4sp', tag_category_id: 1 },{ name: '5sp', tag_category_id: 1 }, { name: '6sp', tag_category_id: 1 },
   { name: '7sp', tag_category_id: 1 }, { name: '8sp', tag_category_id: 1 }, { name: '9sp', tag_category_id: 1 },
   { name: '9sp', tag_category_id: 1 }, { name: '10sp', tag_category_id: 1 }, { name: '11sp', tag_category_id: 1 },
+
   { name: 'Shimano', tag_category_id: 3 }, { name: 'Campagnolo', tag_category_id: 3 }, { name: 'SRAM', tag_category_id: 3 },
   { name: 'Suntour', tag_category_id: 3 },
   ])
